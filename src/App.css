@@ -1,3 +1,16 @@
 form label {
     display: block;
 }
+
+.page-num {
+    text-align: center;
+    margin: 1px;
+    padding: 1px;
+    border-radius: 3px;
+    background-color: orange;
+    width: 20px;
+}
+
+.page-num:hover {
+    cursor: pointer;
+}

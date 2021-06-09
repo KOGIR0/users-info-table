@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import UsersTable from './App';
+import UsersInfoApp from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <UsersTable />
+    <UsersInfoApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
