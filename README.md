@@ -5,7 +5,7 @@
 ![]()
 
 ## Сборка приложения
-для сборки Docker изображения приложения: npm run-script docker-build
+для сборки Docker изображения приложения: npm run-script docker-build \
 для сборки приложения: npm build
 
 ## Запуск приложения
