@@ -15,7 +15,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker-build": "sudo docker build -t users-info-table:dev .",
+    "docker-run": "sudo docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3001:3000 -e CHOKIDAR_USEPOLLING=true users-info-table:dev",
+    "docker-build-prod": "sudo docker build -f Dockerfile.prod -t users-info-table:prod .",
+    "docker-run-prod": "sudo docker run -it --rm -p 1337:80 users-info-table:prod"
   },
   "eslintConfig": {
     "extends": [

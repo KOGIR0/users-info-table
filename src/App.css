@@ -13,4 +13,14 @@ form label {
 
 .page-num:hover {
     cursor: pointer;
+    width: 30px;
+}
+
+.loading {
+    text-align: center;
+    font-size: large;
+}
+
+.app-content {
+    text-align: center;
 }

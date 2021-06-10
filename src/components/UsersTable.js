@@ -1,4 +1,5 @@
 import React from 'react';
+import './UsersTable.css';
 
 const ascending = 'asc';
 const descending = 'des';
@@ -89,19 +90,19 @@ class UsersTable extends React.Component
   {
     return (
       <div>
-      <table>
+      <table className="center">
         <tbody>
           <tr>
-            <th onClick={() => this.sortColumn('id')}>ID {this.getSortDirection('id')}</th>
-            <th onClick={() => this.sortColumn('firstName')}>firstName {this.getSortDirection('firstName')}</th>
-            <th onClick={() => this.sortColumn('lastName')}>lastName {this.getSortDirection('lastName')}</th>
-            <th onClick={() => this.sortColumn('email')}>email {this.getSortDirection('email')}</th>
-            <th onClick={() => this.sortColumn('phone')}>phone {this.getSortDirection('phone')}</th>
+            <th className="column-name" onClick={() => this.sortColumn('id')}>ID {this.getSortDirection('id')}</th>
+            <th className="column-name" onClick={() => this.sortColumn('firstName')}>firstName {this.getSortDirection('firstName')}</th>
+            <th className="column-name" onClick={() => this.sortColumn('lastName')}>lastName {this.getSortDirection('lastName')}</th>
+            <th className="column-name" onClick={() => this.sortColumn('email')}>email {this.getSortDirection('email')}</th>
+            <th className="column-name" onClick={() => this.sortColumn('phone')}>phone {this.getSortDirection('phone')}</th>
           </tr>
           {this.state.usersData.slice(pageElemsNum * this.props.currentPage,
           pageElemsNum * (this.props.currentPage + 1) < this.state.usersData.length ?
           pageElemsNum * (this.props.currentPage + 1) : this.state.usersData.length).map((data, index) => {
-            return <tr key={index} onClick={() => this.showUserInfo(index)} style={data === this.state.chosenUser ? {backgroundColor: 'orange'} : null}>
+            return <tr className="user-row" key={index} onClick={() => this.showUserInfo(index)} style={data === this.state.chosenUser ? {backgroundColor: 'orange'} : null}>
               <td>{data.id}</td>
               <td>{data.firstName}</td>
               <td>{data.lastName}</td>
