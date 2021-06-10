@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import UsersInfoApp from './App';
+import UsersInfoApp from './components/UsersInfoApp';
 
 class DataChoice extends React.Component
 {

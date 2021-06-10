@@ -1,7 +1,7 @@
-import './App.css';
+import './UsersInfoApp.css';
 import React from 'react';
-import AddUserForm from './components/AddUserForm';
-import {UsersTable, pageElemsNum} from './components/UsersTable';
+import AddUserForm from './AddUserForm';
+import {UsersTable, pageElemsNum} from './UsersTable';
 
 function Pages(props)
 {
