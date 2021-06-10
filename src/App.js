@@ -3,9 +3,6 @@ import React from 'react';
 import AddUserForm from './components/AddUserForm';
 import {UsersTable, pageElemsNum} from './components/UsersTable';
 
-//const smallDataURL = 'http://www.filltext.com/?rows=32&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D';
-const bigDataURL = 'http://www.filltext.com/?rows=1000&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&delay=3&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D';
-
 function Pages(props)
 {
   return (
@@ -48,7 +45,7 @@ class UsersInfoApp extends React.Component
 
   componentDidMount()
   {
-    fetch(bigDataURL)
+    fetch(this.props.dataURL)
     .then(res => res.ok ? res : Promise.reject(res))
     .then(response => response.json())
     .then(data => {
@@ -79,7 +76,8 @@ class UsersInfoApp extends React.Component
       currentPage: 0,
       pageNum: filteredData.length % pageElemsNum === 0 ?
        Math.floor(filteredData.length / pageElemsNum) :
-       Math.floor(filteredData.length / pageElemsNum) + 1});
+       Math.floor(filteredData.length / pageElemsNum) + 1
+    });
   }
 
   showForm(e)
@@ -120,7 +118,10 @@ class UsersInfoApp extends React.Component
 
     this.setState({
       initialUsersData: [newUser, ...this.state.initialUsersData],
-      usersData: [newUser, ...this.state.initialUsersData]
+      usersData: [newUser, ...this.state.initialUsersData],
+      pageNum: [newUser, ...this.state.initialUsersData].length % pageElemsNum === 0 ?
+       Math.floor([newUser, ...this.state.initialUsersData].length / pageElemsNum) :
+       Math.floor([newUser, ...this.state.initialUsersData].length / pageElemsNum) + 1
     });
   }
 

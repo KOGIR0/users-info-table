@@ -12,7 +12,7 @@ class UsersTable extends React.Component
     super(props);
 
     this.state = {
-      usersData: props.data,
+      usersData: props.data ? props.data : [],
       sortValue: "",
       sortDirection: "",
       chosenUser: null
@@ -50,7 +50,6 @@ class UsersTable extends React.Component
 
   sortColumn(param)
   {
-    console.log(this.state);
     if(this.state.sortValue === param)
     {
       if(this.state.sortDirection === ascending)
@@ -78,9 +77,10 @@ class UsersTable extends React.Component
 
   showUserInfo(index)
   {
-    if(this.state.chosenUser !== this.state.usersData[index + pageElemsNum * this.props.currentPage])
+    let userNumInArray = index + pageElemsNum * this.props.currentPage;
+    if(this.state.chosenUser !== this.state.usersData[userNumInArray])
     {
-      this.setState({chosenUser: this.state.usersData[index + pageElemsNum * this.props.currentPage]});
+      this.setState({chosenUser: this.state.usersData[userNumInArray]});
     } else {
       this.setState({chosenUser: null});
     }
@@ -102,19 +102,19 @@ class UsersTable extends React.Component
           {this.state.usersData.slice(pageElemsNum * this.props.currentPage,
           pageElemsNum * (this.props.currentPage + 1) < this.state.usersData.length ?
           pageElemsNum * (this.props.currentPage + 1) : this.state.usersData.length).map((data, index) => {
-            return <tr className="user-row" key={index} onClick={() => this.showUserInfo(index)} style={data === this.state.chosenUser ? {backgroundColor: 'orange'} : null}>
+            return (<tr className="user-row" key={index} onClick={() => this.showUserInfo(index)} style={data === this.state.chosenUser ? {backgroundColor: 'orange'} : null}>
               <td>{data.id}</td>
               <td>{data.firstName}</td>
               <td>{data.lastName}</td>
               <td>{data.email}</td>
               <td>{data.phone}</td>
-              </tr>
+              </tr>)
           })}
         </tbody>
       </table>
       <ChosenUserInfo user={this.state.chosenUser}/>
       </div>
-      );
+    );
   }
 }
 

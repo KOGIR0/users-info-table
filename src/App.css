@@ -21,6 +21,11 @@ form label {
     font-size: large;
 }
 
+.loading:hover
+{
+    cursor: progress;
+}
+
 .app-content {
     text-align: center;
 }
